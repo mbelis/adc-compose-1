@@ -27,7 +27,7 @@ import androidx.compose.ui.Modifier
 import com.example.androiddevchallenge.model.Pet
 
 @Composable
-fun PetList(pets: List<Pet>, onClick: (Pet) -> Unit, modifier: Modifier = Modifier) {
+fun PetList(pets: List<Pet>, onItemClick: (Pet) -> Unit, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             itemsIndexed(pets) { index, pet ->
@@ -35,7 +35,7 @@ fun PetList(pets: List<Pet>, onClick: (Pet) -> Unit, modifier: Modifier = Modifi
                     pet = pet,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable(onClick = { onClick(pet) })
+                        .clickable(onClick = { onItemClick(pet) })
                 )
                 if (index < pets.size - 1) {
                     Divider()

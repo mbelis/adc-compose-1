@@ -15,16 +15,14 @@
  */
 package com.example.androiddevchallenge
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.model.Pet
 import com.example.androiddevchallenge.ui.PetList
@@ -51,22 +49,22 @@ fun getPetList() = buildList {
 @Composable
 fun MyApp() {
     val pets = getPetList()
+    val context = LocalContext.current
+
     Surface(color = MaterialTheme.colors.background) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text(text = stringResource(R.string.app_name)) }
-                )
-            }
-        ) {
-            PetList(pets = pets, onClick = {})
-        }
+        PetList(pets = pets, onItemClick = { pet ->
+            context.startActivity(
+                Intent(context, DetailActivity::class.java).also {
+                    it.putExtra(DetailActivity.INTENT_PET, pet)
+                }
+            )
+        })
     }
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
-fun LightPreview() {
+private fun LightPreview() {
     MyTheme {
         MyApp()
     }
@@ -74,7 +72,7 @@ fun LightPreview() {
 
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
-fun DarkPreview() {
+private fun DarkPreview() {
     MyTheme(darkTheme = true) {
         MyApp()
     }
