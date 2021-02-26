@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -40,16 +41,22 @@ class MainActivity : AppCompatActivity() {
 }
 
 // Start building your app here!
-fun getPetList() = buildList {
+fun getPetList(context: Context) = buildList {
     repeat(20) {
-        add(Pet("https://placekitten.com/100/100?image=$it", "Ralph"))
+        add(
+            Pet(
+                imageUrl = "https://placekitten.com/100/100?image=$it",
+                name = context.resources.getStringArray(R.array.names)[it],
+                years = (1..10).random()
+            )
+        )
     }
 }
 
 @Composable
 fun MyApp() {
-    val pets = getPetList()
     val context = LocalContext.current
+    val pets = getPetList(context = context)
 
     Surface(color = MaterialTheme.colors.background) {
         PetList(pets = pets, onItemClick = { pet ->

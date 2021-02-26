@@ -21,5 +21,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Pet(
     val imageUrl: String,
-    val name: String
+    val name: String,
+    val years: Int
 ) : Parcelable

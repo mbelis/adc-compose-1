@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.ui
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -28,7 +29,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.model.Pet
 import dev.chrisbanes.accompanist.glide.GlideImage
 
@@ -36,12 +39,17 @@ import dev.chrisbanes.accompanist.glide.GlideImage
 fun PetItem(pet: Pet, modifier: Modifier = Modifier) {
     Row(modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
         GlideImage(
-            modifier = Modifier.size(64.dp).clip(RoundedCornerShape(4.dp)),
+            modifier = Modifier
+                .size(64.dp)
+                .clip(RoundedCornerShape(4.dp)),
             data = pet.imageUrl,
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
         Spacer(Modifier.width(16.dp))
-        Text(text = pet.name, style = MaterialTheme.typography.subtitle2)
+        Column {
+            Text(text = pet.name, style = MaterialTheme.typography.subtitle2)
+            Text(text = stringResource(id = R.string.pet_years, pet.years), style = MaterialTheme.typography.caption)
+        }
     }
 }

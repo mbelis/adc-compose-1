@@ -15,4 +15,28 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 \n\nUt tellus elementum sagittis vitae et leo duis. Cursus eget nunc scelerisque viverra mauris in aliquam sem. Sed elementum tempus egestas sed sed risus pretium. Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Faucibus in ornare quam viverra orci sagittis eu. Volutpat odio facilisis mauris sit amet massa vitae tortor. Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Ut morbi tincidunt augue interdum velit euismod in. Ornare aenean euismod elementum nisi quis eleifend. In cursus turpis massa tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac auctor augue mauris augue. Nunc id cursus metus aliquam eleifend mi in nulla.
     </string>
     <string name="adopt">Adopt</string>
+    <string name="pet_years">%1$d years</string>
+
+    <string-array name="names">
+        <item>Wicked</item>
+        <item>Lego</item>
+        <item>Kumar</item>
+        <item>Grim</item>
+        <item>Neptune</item>
+        <item>Fivel</item>
+        <item>Keke</item>
+        <item>Mona</item>
+        <item>Olson</item>
+        <item>Kumar</item>
+        <item>Hank</item>
+        <item>Toro</item>
+        <item>Newman</item>
+        <item>Nala</item>
+        <item>Sabrina</item>
+        <item>Pablo</item>
+        <item>Anita</item>
+        <item>Scarecrow</item>
+        <item>Colton</item>
+        <item>Alize</item>
+    </string-array>
 </resources>
