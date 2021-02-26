@@ -59,13 +59,16 @@ fun MyApp() {
     val pets = getPetList(context = context)
 
     Surface(color = MaterialTheme.colors.background) {
-        PetList(pets = pets, onItemClick = { pet ->
-            context.startActivity(
-                Intent(context, DetailActivity::class.java).also {
-                    it.putExtra(DetailActivity.INTENT_PET, pet)
-                }
-            )
-        })
+        PetList(
+            pets = pets,
+            onItemClick = { pet ->
+                context.startActivity(
+                    Intent(context, DetailActivity::class.java).also {
+                        it.putExtra(DetailActivity.INTENT_PET, pet)
+                    }
+                )
+            }
+        )
     }
 }
 
