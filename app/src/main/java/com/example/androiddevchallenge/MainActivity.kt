@@ -42,9 +42,15 @@ class MainActivity : AppCompatActivity() {
 }
 
 // Start building your app here!
+fun getPetList() = buildList {
+    repeat(20) {
+        add(Pet("https://placekitten.com/100/100?image=$it", "Ralph"))
+    }
+}
+
 @Composable
 fun MyApp() {
-    val pets = arrayListOf(Pet("https://placekitten.com/200/300", "Ralph"))
+    val pets = getPetList()
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(
             topBar = {
